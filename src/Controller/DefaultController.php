@@ -28,7 +28,7 @@ Class DefaultController extends AbstractController
     
         return $this->render('default/index.html.twig', [
     
-           'bienvenue' => 'Bienvenue !',
+           'bienvenue' => 'Des milliers de wild séries en illimité pour toi et toute ta meute !',
     
         ]);
     
