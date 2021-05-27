@@ -11,24 +11,43 @@ use Symfony\Component\HttpFoundation\Response;
 
 use Symfony\Component\Routing\Annotation\Route;
 
+    /**
 
-Class ProgramController extends AbstractController
+    * @Route("/programs", name="program_")
+
+    */
+class ProgramController extends AbstractController
 
 {
 
     /**
 
-     * @Route("/programs/", name="program_index")
+    * @Route("/", name="index")
 
-     */
+    */
 
     public function index(): Response
 
     {
-    
         return $this->render('program/index.html.twig', [
+
+            'website' => 'Wild Séries',
+
+        ]);
+    }
+    /**
+
+     * @Route("/{id}", methods={"GET"}, requirements={"id"="\d+"},  name="id")
+
+     */
+
+    public function show(int $id): Response
+
+    {
     
-           'website' => 'Wild Séries',
+        return $this->render('program/show.html.twig', [
+    
+           'program' => $id
     
         ]);
     
