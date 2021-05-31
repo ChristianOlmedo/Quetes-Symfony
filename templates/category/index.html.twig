@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}All categories{% endblock %}
+
+
+{% block body %}
+
+    <h1>Toutes les catégories de la table program : </h1>
+
+    {% for category in categories %}
+
+        <div>
+
+
+            <a href="{{ path("category_show", { categoryName: category.name }) }}" class="btn btn-danger">{{category.name}}</a> 
+
+
+        </div>
+
+    {% else %}
+
+        Aucune categories trouvée.
+
+    {% endfor %}
+
+
+    <a href="{{ path('app_index') }}">
+
+        Retour à l'accueil
+
+    </a>
+
+{% endblock %}
