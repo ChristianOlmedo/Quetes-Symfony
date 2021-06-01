@@ -1,11 +1,11 @@
 @import "~bootstrap/scss/bootstrap";
 
 body {
-    background-color: white;
+    background-color: rgba(167, 57, 57, 0.507);
 }
 
 $primary: darken(#ca4242, 20%);
-$body-bg: purple;
+$body-bg: rgb(221, 138, 221);
 
 h1 {
     color: $primary;
