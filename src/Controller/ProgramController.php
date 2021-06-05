@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
-
+use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Program;
 use App\Entity\Category;
 use App\Entity\Season;
@@ -76,7 +76,7 @@ class ProgramController extends AbstractController
 
         // Was the form submitted ?
 
-        if ($form->isSubmitted()) {
+        if ($form->isSubmitted() && $form->isValid()) {
 
             // Deal with the submitted data
     
