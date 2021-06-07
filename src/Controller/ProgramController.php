@@ -17,6 +17,7 @@ use App\Entity\Program;
 use App\Entity\Category;
 use App\Entity\Season;
 use App\Entity\Episode;
+use App\Entity\Actor;
 use App\Form\ProgramType;
 use Symfony\Component\HttpFoundation\Request;
     /**
