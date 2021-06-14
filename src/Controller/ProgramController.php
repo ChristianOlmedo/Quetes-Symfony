@@ -20,6 +20,11 @@ use App\Entity\Episode;
 use App\Entity\Actor;
 use App\Form\ProgramType;
 use Symfony\Component\HttpFoundation\Request;
+
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
+
+
     /**
 
     * @Route("/programs", name="program_")
@@ -59,50 +64,26 @@ class ProgramController extends AbstractController
 
      */
 
-    public function new(Request $request) : Response
+    public function new(Request $request, MailerInterface $mailer): Response
 
     {
-
-        // Create a new Program Object
-
         $program = new Program();
-
-        // Create the associated Form
-
         $form = $this->createForm(ProgramType::class, $program);
-
-        // Get data from HTTP request
-
         $form->handleRequest($request);
-
-        // Was the form submitted ?
-
         if ($form->isSubmitted() && $form->isValid()) {
-
-            // Deal with the submitted data
-    
-            // Get the Entity Manager
-    
             $entityManager = $this->getDoctrine()->getManager();
-    
-            // Persist Program Object
-    
             $entityManager->persist($program);
-    
-            // Flush the persisted object
-    
             $entityManager->flush();
-    
-            // Finally redirect to categories list
-    
+            $email = (new Email())
+            ->from($this->getParameter('mailer_from'))
+            ->to('your_email@example.com')
+            ->subject('Une nouvelle série vient d\'être publiée !')
+            ->html($this->renderView('program/newProgramEmail.html.twig', ['program' => $program]));
+            $mailer->send($email);
+
             return $this->redirectToRoute('program_index');
-    
         }
-
-        // Render the form
-
         return $this->render('program/new.html.twig', ["form" => $form->createView()]);
-
     }
 
     /**
