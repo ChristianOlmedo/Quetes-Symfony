@@ -13,3 +13,5 @@ validation: https://www.loom.com/share/7e1990ec15824cb594692630a9127415
 symfony 15: https://www.loom.com/share/f34b2d505fc64730b1d67d98845894ae
 
 symfony 16: https://www.loom.com/share/a378825d34644293937d76e85c215e30
+
+symfony 19: https://www.loom.com/share/f9c821759e904efd88ed1eee36eae3f8
