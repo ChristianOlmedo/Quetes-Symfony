@@ -11,6 +11,9 @@ use Symfony\Component\HttpFoundation\Response;
 
 use Symfony\Component\Routing\Annotation\Route;
 
+use App\Entity\Category;
+use App\Repository\CategoryRepository;
+
 
 Class DefaultController extends AbstractController
 
@@ -32,6 +35,18 @@ Class DefaultController extends AbstractController
     
         ]);
     
+    }
+
+    public function navbarTop(CategoryRepository $categoryRepository): Response
+
+    {
+
+        return $this->render('layout/navbartop.html.twig', [
+
+            'categories' => $categoryRepository->findBy([], ['id' => 'DESC'])
+
+    ]);
+
     }
 
 }
