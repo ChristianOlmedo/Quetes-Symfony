@@ -17,3 +17,5 @@ symfony 16: https://www.loom.com/share/a378825d34644293937d76e85c215e30
 symfony 19: https://www.loom.com/share/f9c821759e904efd88ed1eee36eae3f8
 
 symfony 24: https://www.loom.com/share/203d90461c314dec9b9d73eb077de2b1
+
+symfony 27: https://www.loom.com/share/fb084077603a46b8a3dfe22e76f3172c
